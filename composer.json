@@ -1,0 +1,70 @@
+{
+    "name": "fansipan/log-plugin",
+    "description": "Log plugin for Fansipan SDK",
+    "keywords": [
+        "fansipan",
+        "psr",
+        "log"
+    ],
+    "homepage": "https://github.com/phanxipang/log-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lynh",
+            "email": "contact@lynh.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "fansipan/fansipan": "^1.0",
+        "psr/log": "^1.0|^2.0|^3.0"
+    },
+    "require-dev": {
+        "fansipan/mock-client": "^1.2",
+        "friendsofphp/php-cs-fixer": "^3.4",
+        "monolog/monolog": "^3.8",
+        "nyholm/psr7": "^1.8",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fansipan\\Log\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fansipan\\Log\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "cs": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
+        ],
+        "check": [
+            "@cs --dry-run",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
