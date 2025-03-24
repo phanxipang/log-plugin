@@ -13,7 +13,7 @@ final class Logger
 {
     public const DEFAULT_LOG_LEVELS = [
         LogLevel::INFO => [200, 399],
-        LogLevel::ERROR => [400, 499],
+        LogLevel::ERROR => [400, 599],
     ];
 
     /**
