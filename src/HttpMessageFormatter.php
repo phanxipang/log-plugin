@@ -65,7 +65,7 @@ class HttpMessageFormatter implements MessageFormatter
                                 'headers' => $response->getHeaders(),
                                 'body' => $this->body($response->getBody()),
                             ])
-                            : 'NULL';
+                            : '[NULL]';
                         break;
                     case 'request':
                         $result = \trim($request->getMethod()
@@ -83,7 +83,7 @@ class HttpMessageFormatter implements MessageFormatter
                                 $response->getReasonPhrase()
                             )."\r\n".$this->headers($response)."\r\n\r\n"
                             .$this->body($response->getBody())
-                            : 'NULL';
+                            : '[NULL]';
                         break;
                     case 'req.headers':
                         $result = \trim($request->getMethod()
@@ -99,14 +99,14 @@ class HttpMessageFormatter implements MessageFormatter
                                 $response->getStatusCode(),
                                 $response->getReasonPhrase()
                             )."\r\n".$this->headers($response)
-                            : 'NULL';
+                            : '[NULL]';
                         break;
                     case 'req.body':
                         $result = $this->body($request->getBody());
                         break;
                     case 'res.body':
                         if (! $response instanceof ResponseInterface) {
-                            $result = 'NULL';
+                            $result = '[NULL]';
                             break;
                         }
 
@@ -138,7 +138,7 @@ class HttpMessageFormatter implements MessageFormatter
                     case 'res.version':
                         $result = $response
                             ? $response->getProtocolVersion()
-                            : 'NULL';
+                            : '[NULL]';
                         break;
                     case 'host':
                         $result = $request->getHeaderLine('Host');
@@ -147,13 +147,13 @@ class HttpMessageFormatter implements MessageFormatter
                         $result = \gethostname();
                         break;
                     case 'code':
-                        $result = $response ? $response->getStatusCode() : 'NULL';
+                        $result = $response ? $response->getStatusCode() : '[NULL]';
                         break;
                     case 'phrase':
-                        $result = $response ? $response->getReasonPhrase() : 'NULL';
+                        $result = $response ? $response->getReasonPhrase() : '[NULL]';
                         break;
                     case 'error':
-                        $result = $error ? $error->getMessage() : 'NULL';
+                        $result = $error ? $error->getMessage() : '[NULL]';
                         break;
                     default:
                         // handle prefixed dynamic headers
@@ -162,7 +162,7 @@ class HttpMessageFormatter implements MessageFormatter
                         } elseif (\strpos($matches[1], 'res.header_') === 0) {
                             $result = $response
                                 ? $response->getHeaderLine(\substr($matches[1], 11))
-                                : 'NULL';
+                                : '[NULL]';
                         }
                 }
 
