@@ -85,11 +85,7 @@ final class Logger
                 continue;
             }
 
-            if (\count($value) !== 2 || ! \array_is_list($value)) {
-                continue;
-            }
-
-            if (\in_array($code, \range($value[0], $value[1]), true)) {
+            if (\count($value) === 2 && \in_array($code, \range($value[0], $value[1]), true)) {
                 return $level;
             }
         }
