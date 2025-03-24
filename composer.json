@@ -1,12 +1,12 @@
 {
-    "name": "fansipan/log-plugin",
+    "name": "fansipan/logger-plugin",
     "description": "Log plugin for Fansipan SDK",
     "keywords": [
         "fansipan",
         "psr",
         "log"
     ],
-    "homepage": "https://github.com/phanxipang/log",
+    "homepage": "https://github.com/phanxipang/logger-plugin",
     "license": "MIT",
     "authors": [
         {
